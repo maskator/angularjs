@@ -30,17 +30,22 @@ NarrowItDownController .$inject = ['MenuSearchService'];
 function NarrowItDownController (MenuSearchService) {
   var list = this;
     list.getnames = function (searchTerm){
-
+				list.error=false;
 				list.found=[];
          var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 				//  console.log('promise',promise);
 				 promise.then(function (value) {
 				 console.log('getnames',value);
       	//  console.log('getnames',value[1]);
+				if(value.length == 0){
+
+				 return list.error= true;
+				}
 				 list.found = value;
     		 })
     		.catch(function (error) {
       	//  console.log(error);
+				 list.found = "Nothing found"
          })
 				 }
 
