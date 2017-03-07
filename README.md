@@ -7,6 +7,7 @@ angularjs module 1 index
 [Link](https://github.com/maskator/angularjs/blob/master/module1/index.html)
 
 angularjs module 2 exercise [Link](https://maskator.github.io/angularjs/module2/)
+<<<<<<< HEAD
 
 
 angularjs module 2 index 
@@ -20,5 +21,11 @@ angularjs module 3 index
 
 
 
+=======
+
+
+angularjs module 2 index 
+[Link](https://github.com/maskator/angularjs/blob/master/module2/index.html)
+>>>>>>> origin/master
 
 
