@@ -37,10 +37,9 @@ function NarrowItDownController (MenuSearchService) {
 				 promise.then(function (value) {
 				 console.log('getnames',value);
       	//  console.log('getnames',value[1]);
-				if(value.length == 0){
-
-				 return list.error= true;
-				}
+						if((value.length == 0)||(searchTerm == "")){
+						 return list.error= true;
+						}
 				 list.found = value;
     		 })
     		.catch(function (error) {
