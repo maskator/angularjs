@@ -25,7 +25,7 @@ angularjs module 3 exercise [Link](https://maskator.github.io/angularjs/module3/
 angularjs module 3 index 
 [Link](https://github.com/maskator/angularjs/blob/master/module3/index.html)
 
-MODULE3
+MODULE4
 ---------------------------------------------
 
 angularjs module 4 exercise [Link](https://maskator.github.io/angularjs/module4/)
