@@ -1,6 +1,9 @@
 github repository
 [Link](https://github.com/maskator/angularjs)
 
+github web repository
+[Link](https://maskator.github.io/angularjs/)
+
 MODULE1
 -----------------------------------------------
 
