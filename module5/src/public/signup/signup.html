@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="css/signup.css">
+
+<h1>Simple Form Validation</h1>
+
+    <fieldset>
+      <legend>Registration</legend>
+      <form name='regForm' novalidate>
+
+        <input type="text" name="firstname" placeholder="first name"
+          ng-model="RegistrationCtrl.user.firstname"
+          required
+          minlength="4"
+          ng-maxlength="10">
+          <!-- {{ RegistrationCtrl.user.firstname }} -->
+          <span
+            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+            Username must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+            Username must not be longer than 10 characters
+          </span>
+          <br>
+
+          <input type="text" name="lastname" placeholder="last name"
+            ng-model="RegistrationCtrl.user.lastname"
+            required
+            minlength="4"
+            ng-maxlength="10">
+            <!-- {{RegistrationCtrl.user.lastname }} -->
+            <span
+              ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+              Username must be at least 4 characters long
+            </span>
+            <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+              Username must not be longer than 10 characters
+            </span>
+            <br>
+
+        <input type="email" name="email" placeholder="Email"
+          ng-model="RegistrationCtrl.user.email"
+          required>
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+          ng-model="RegistrationCtrl.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})"
+          required>
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+          <input type="text" name="menunumber" placeholder="Menunumber [A-Z]##"
+            ng-model="RegistrationCtrl.user.menunumber"
+            pattern="([A-Z]\d{1,2})"
+            required>
+            <span ng-if="regForm.menunumber.$invalid && regForm.menunumber.$touched">
+              The Menu Number must be in the format Capital letter + 1 or 2 numbers .
+            </span>
+            <br>
+
+        <button
+          ng-disabled="regForm.$invalid"
+          ng-click="RegistrationCtrl.checkitem(RegistrationCtrl.user.menunumber)">Submit</button>
+          <br>
+          <br>
+          <!-- {{RegistrationCtrl.found }}
+          <br>
+          {{RegistrationCtrl.foundItem }}
+          <br>
+
+          <div style="margin-top: 10px;">
+            Form valid? {{ regForm.$valid }}
+          </div> -->
+          <div ng-if="RegistrationCtrl.error">
+            <h2>No such menu number exists</h2>
+          </div>
+          <div ng-if="RegistrationCtrl.found">
+          <div class="container">
+            <div class="menu-item-tile col-md-6">
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="menu-item-photo">
+                    <div>{{RegistrationCtrl.foundItem.short_name}}</div>
+                    <img class="img-responsive" width="250" height="150" ng-src="{{RegistrationCtrl.basePath}}/images/{{RegistrationCtrl.foundItem.short_name}}.jpg" alt="{{$ctrl.menuItem.name}}">
+                  </div>
+                  <div class="menu-item-price">{{RegistrationCtrl.foundItem.price_small | currency}}<span> {{RegistrationCtrl.foundItem.small_portion_name}}</span> {{RegistrationCtrl.foundItem.price_large | currency}} <span>{{RegistrationCtrl.foundItem.large_portion_name}}</span></div>
+                </div>
+                <div class="menu-item-description col-sm-7">
+                  <h2>Your favourite dish</h2>
+                  <h3 class="menu-item-title">{{RegistrationCtrl.foundItem.name}}</h3>
+                  <p class="menu-item-details">{{RegistrationCtrl.foundItem.description}}</p>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- container -->
+        </div>  <!-- ngif -->
+      </form>
+    </fieldset>
+
+    <div id="info" ng-if="RegistrationCtrl.completed">
+      Username: {{ RegistrationCtrl.user.firstname}} <br>
+      Email: {{ RegistrationCtrl.user.email}} <br>
+      Phone: {{ RegistrationCtrl.user.phone }}
+      <h2>Your information has been saved.</h2>
+    </div>

@@ -1,0 +1,32 @@
+<div ng-if="!MyinfoCtrl.user">
+  <h2>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h2>
+</div>
+
+
+<div id="info" ng-if="MyinfoCtrl.user">
+
+  <h2>Your information:.</h2><br>
+  User Full Name: {{ MyinfoCtrl.user.firstname}} {{ MyinfoCtrl.user.lastname}} <br>
+  Email: {{ MyinfoCtrl.user.email}} <br>
+  Phone: {{ MyinfoCtrl.user.phone }} <br>
+
+<div class="container">
+  <div class="menu-item-tile col-md-6">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="menu-item-photo">
+          <div>{{MyinfoCtrl.item.short_name}}</div>
+          <img class="img-responsive" width="250" height="150" ng-src="{{MyinfoCtrl.basePath}}/images/{{MyinfoCtrl.item.short_name}}.jpg" alt="{{MyinfoCtrl.item.name}}">
+        </div>
+        <div class="menu-item-price">{{MyinfoCtrl.item.price_small | currency}}<span> {{MyinfoCtrl.item.small_portion_name}}</span> {{MyinfoCtrl.itemprice_large | currency}} <span>{{MyinfoCtrl.item.large_portion_name}}</span></div>
+      </div>
+      <div class="menu-item-description col-sm-7">
+        <h2>Your favourite dish</h2>
+        <h3 class="menu-item-title">{{MyinfoCtrl.item.name}}</h3>
+        <p class="menu-item-details">{{MyinfoCtrl.item.description}}</p>
+      </div>
+    </div>
+
+  </div>
+</div><!-- container -->
+</div>  <!-- ngif -->
